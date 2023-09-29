@@ -3,6 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 
 import clientRouter from "./routers/client.routes.js";
+import productRouter from "./routers/product.routes.js";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.get("/", async (req, res) => {
 });
 
 app.use("/api", clientRouter);
+app.use("/api", productRouter);
 
 app.use((req, res, next) => {
   res.status(404).json({ message: "Not Found" });
